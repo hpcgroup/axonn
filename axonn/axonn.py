@@ -423,7 +423,7 @@ def _calc_loss(microbatch_no, microbatch_labels):
         microbatch_no (int): the microbatch number
         microbatch_labels (torch.Tensor): the true labels for the microbatch
     """
-    return criterion(output_tensors_cache[microbatch_no], microbatch_labels)
+    return criterion(output_tensors_cache[microbatch_no], microbatch_labels.view(-1))
 
 
 def _backward_pass(output_gradients, microbatch_no):
